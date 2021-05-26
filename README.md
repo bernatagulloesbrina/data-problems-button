@@ -1,0 +1,2 @@
+# data-problems-button
+This script will create an empty table with the required measures to define a button that shows up only when data problems exist. There must be an existing measure which returns the number of problems (items not present on the dimension table etc). Selecting this measure and running the script will create the required measures for the button, such as button text, button color, button destination. Based on GuyInACube idea.
