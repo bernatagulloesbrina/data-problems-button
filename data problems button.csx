@@ -6,12 +6,12 @@
 
 //change the next 5 string variables to your choice
 
-string navigationTableName = "Navigation 2"; 
+string navigationTableName = "Navigation"; 
 
-string buttonTextMeasureName = "Button Text 2";
+string buttonTextMeasureName = "Button Text";
 string buttonTextPattern = "There are # data problems"; 
 
-string buttonBackgroundMeasureName = "Button Background 2"; 
+string buttonBackgroundMeasureName = "Button Background"; 
 string buttonNavigationMeasureName = "Button Navigation"; 
 string thereAreDataProblemsMeasureName = "There are data problems"; 
 string dataProblemsSheetName = "Data Problems"; 
@@ -141,4 +141,6 @@ var buttonTextMeasure =
     
 buttonTextMeasure.FormatDax(); 
 buttonTextMeasure.Description = "Use this measure for dynamic button text";  
+
+dataProblemsMeasure.MoveTo(navigationTable);
     
