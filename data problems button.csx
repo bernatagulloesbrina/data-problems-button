@@ -2,7 +2,9 @@
 // by Bernat Agulló
 // www.esbrina-ba.com
 
-//select the measures that counts the number of "data problems" the model has and then run the script
+// on the TOM Expororer panel SELECT THE MEASURE that 
+// counts the number of "data problems" the model has 
+// and then run the script
 
 //change the next 5 string variables to your choice
 
@@ -55,7 +57,7 @@ foreach(string measureName in newMeasureNames) {
 var dataProblemsMeasure = Selected.Measure; 
 
 string navigationTableExpression = 
-    "Navigation = FILTER({1},[Value] = 0)";
+    "FILTER({1},[Value] = 0)";
 
 var navigationTable = 
     Model.AddCalculatedTable(navigationTableName,navigationTableExpression);
