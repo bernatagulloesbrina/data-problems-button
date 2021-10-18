@@ -1,36 +1,55 @@
+#r "Microsoft.VisualBasic"
+using Microsoft.VisualBasic;
+
+
 // '2021-05-26 / B.Agullo / 
+// '2021-10-13 / B.Agullo / dynamic parameters for one-click operation
 // by Bernat Agulló
 // www.esbrina-ba.com
 
-// on the TOM Expororer panel SELECT THE MEASURE that 
-// counts the number of "data problems" the model has 
-// and then run the script
+// Instructions: 
+//select the measures that counts the number of "data problems" the model has and then run the script or as macro
+//when adding macro select measure context for execution 
 
-//change the next 5 string variables to your choice
+//
+// ----- do not modify script below this line -----
+//
 
-string navigationTableName = "Navigation"; 
 
-string buttonTextMeasureName = "Button Text";
-string buttonTextPattern = "There are # data problems"; 
+if (Selected.Measures.Count != 1) {
+    Error("Select one and only one measure");
+    return;
+};
 
-string buttonBackgroundMeasureName = "Button Background"; 
-string buttonNavigationMeasureName = "Button Navigation"; 
-string thereAreDataProblemsMeasureName = "There are data problems"; 
-string dataProblemsSheetName = "Data Problems"; 
+
+string navigationTableName = Interaction.InputBox("Provide a name for navigation measures table name", "Navigation Table Name", "Navigation", 740, 400);
+if(navigationTableName == "") return;
+
+string buttonTextMeasureName = Interaction.InputBox("Name for your button text measure", "Button text measure name", "Button Text", 740, 400);
+if(buttonTextMeasureName == "") return;
+
+string buttonTextPattern = Interaction.InputBox("Provide a pattern for your button text", "Button text pattern (# = no. of problems)", "There are # data problems", 740, 400);
+if(buttonTextPattern == "") return;
+
+string buttonBackgroundMeasureName = Interaction.InputBox("Name your button background measure", "Button Background Measure", "Button Background", 740, 400);
+if(buttonBackgroundMeasureName == "") return;
+
+string buttonNavigationMeasureName = Interaction.InputBox("Name your button navigation measure", "Button Navigation Measure", "Button Navigation", 740, 400);
+if(buttonNavigationMeasureName == "") return;
+
+string thereAreDataProblemsMeasureName = Interaction.InputBox("Name your data problems flag measure", "Data problems Flag Measure", "There are Data Problems", 740, 400);
+if(thereAreDataProblemsMeasureName == "") return;
+
+string dataProblemsSheetName = Interaction.InputBox("Where are the data problems detail?", "Data problems Sheet", "Data Problems", 740, 400);
+if(dataProblemsSheetName == "") return;
 
 //colors will be created if not present
 string buttonColorMeasureNameWhenVisible = "bad"; 
 string buttonColorMeasureValueWhenVisible = "\"#D64554\""; 
 string buttonColorMeasureNameWhenInvisible = "transparent"; 
 
-//
-// ----- do not modify script below this line -----
-//
 
-if (Selected.Measures.Count != 1) {
-    Error("Select one and only one measure");
-    return;
-};
+
 
 if(Model.Tables.Any(Table => Table.Name == navigationTableName)) {
     Error(navigationTableName + " already exists!");
