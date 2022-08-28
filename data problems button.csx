@@ -163,5 +163,5 @@ var buttonTextMeasure =
 buttonTextMeasure.FormatDax(); 
 buttonTextMeasure.Description = "Use this measure for dynamic button text";  
 
-dataProblemsMeasure.MoveTo(navigationTable);
+//dataProblemsMeasure.MoveTo(navigationTable);
     
